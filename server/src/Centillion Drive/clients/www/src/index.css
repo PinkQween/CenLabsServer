@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.folder,
+.file {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+    user-select: none;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+.folder:hover,
+.file:hover {
+    background-color: #e0e0e0;
+}
+
+.back-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.file-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    max-width: 80%;
+    max-height: 80%;
+    overflow: auto;
+}
+
+.button {
+    height: 70px;
+    /* Adjust the height to your preference */
+    min-width: 150px;
+    /* Adjust the width to your preference */
+    border: 3px solid black;
+    border-radius: 20%;
+    background: #B50B7C;
+    text-align: center;
+    box-shadow: 0px 12px #880c5f;
+    transition: all 0.2s ease;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 12px;
+}
+
+.button:hover {
+    cursor: pointer;
+    transform: translateY(4px);
+    box-shadow: 0px 8px #630945;
+}
+
+.button:active {
+    /* border: 5px groove #000; */
+    background: #940966;
+    box-shadow: 0px 4px #630945;
+    transform: translateY(8px);
+}
+
+.button:focus {
+    outline: 0;
+}
+
+.animated-background {
+    background-image: url('https://imageio.forbes.com/specials-images/imageserve/5ff33727caf4e1665e7d5bda/External-backup-disk-hard-drive-connected-to-laptop/0x0.jpg?format=jpg&crop=4895,3263,x12,y0,safe&width=960');
+    background-size: cover;
+    padding-top: 66%;
+    height: 0;
+    transition: transform 0.5s ease-out;
+    /* Add a transition for smooth animation */
+    transform-origin: top;
+}
+
+.animated-background.show {
+    transform: translateY(-100%);
+}
+
+.card {
+    background-color: white;
+    border-radius: 5%;
+    margin: 3rem;
+    text-align: center;
+    padding: 6px;
+    width: 25rem;
+    transition: all 0.25s ease-out;
+    padding-bottom: 5rem;
+}
+
+/* .card {
+    background-color: white;
+    border-radius: 5%;
+    margin: 3rem;
+    text-align: center;
+    padding: 6px;
+    width: 25rem;
+    transition: all 0.25s ease-out;
+    padding-bottom: 5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 5%;
+    border: 2px solid transparent;
+    box-shadow: 0 0 10px 2px #8e44ad, 0 0 20px 4px #3498db, 0 0 30px 6px #2980b9, 0 0 40px 8px #3498db;
+    animation: rotateGlow 3s linear infinite;
+}
+
+@keyframes rotateGlow {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} */
+
+.card:hover {
+    transform: translateY(-10rem);
+}

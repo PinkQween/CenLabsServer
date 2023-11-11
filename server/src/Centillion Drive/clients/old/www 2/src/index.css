@@ -1,0 +1,15 @@
+.App {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+#upload-box {
+  margin: 20px;
+  border: 2px dashed #ccc;
+  padding: 20px;
+  cursor: pointer;
+}
+
+#upload-box:hover {
+  border: 2px dashed #666;
+}

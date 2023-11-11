@@ -1,0 +1,32 @@
+body {
+  background: linear-gradient(0deg, #fcbfbb, #f7a8bc);
+  animation: blinking 30s infinite alternate none;
+}
+#head {
+    font-size: 25px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#subhead {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 15px;
+}
+
+legend {
+  font-size: 15px;
+}
+
+a {
+  text-decoration: none;
+}
+
+fieldset {
+  width: 600px;
+}
+
+@keyframes blinking {
+  0% {background: #ffb3c6;}
+  100% { background: #f6d4fc; }
+}

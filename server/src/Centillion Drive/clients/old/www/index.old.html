@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>File and Folder Upload</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+            }
+
+            #upload-box {
+                margin: 20px;
+                border: 2px dashed #ccc;
+                padding: 20px;
+                cursor: pointer;
+            }
+
+            #upload-box:hover {
+                border: 2px dashed #666;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>File and Folder Upload</h1>
+        <div id="upload-box">
+            <p>Drag and drop a file or folder here, or click to select one.</p>
+            <input type="file" id="file-input" multiple webkitdirectory directory />
+        </div>
+        <div id="output"></div>
+        <button id="upload-button" onclick="handleUpload()">Upload</button>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.5.0/jszip.min.js"></script>
+        <script>
+            const uploadBox = document.getElementById('upload-box');
+            const fileInput = document.getElementById('file-input');
+            const output = document.getElementById('output');
+
+            uploadBox.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadBox.style.borderColor = '#666';
+            });
+
+            uploadBox.addEventListener('dragleave', () => {
+                uploadBox.style.borderColor = '#ccc';
+            });
+
+            uploadBox.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadBox.style.borderColor = '#ccc';
+                fileInput.files = e.dataTransfer.files;
+            });
+
+            fileInput.addEventListener('change', (e) => {
+                fileInput.files = e.target.files;
+            });
+
+            async function handleUpload() {
+                const items = fileInput.files;
+                output.innerHTML = '';
+
+                console.log(items)
+
+                for (const item of items) {
+                    if (!item.size) {
+                        // This is a folder
+                        const zip = new JSZip();
+                        await addFolderToZip(zip, item, '');
+                        const zippedBlob = await zip.generateAsync({ type: 'blob' });
+
+
+                        const uploadUrl = '/user@example.com/upload'; // Replace with your actual server endpoint
+                        const formData = new FormData();
+                        formData.append('file', zippedBlob, `${item.name}.zip`);
+                        formData.append('isFolderZipped', true);
+
+                        try {
+                            const response = await fetch(uploadUrl, {
+                                method: 'POST',
+                                body: formData,
+                            });
+
+                            if (response.status === 200) {
+                                console.log('Upload successful.');
+                            } else {
+                                console.error('Upload failed.');
+                            }
+                        } catch (error) {
+                            console.error('Error during upload:', error);
+                        }
+                    } else {
+                        // This is a file, so you can upload it as is.
+                        const uploadUrl = '/user@example.com/upload'; // Replace with your actual server endpoint
+                        const formData = new FormData();
+                        formData.append('file', item);
+                        formData.append('isFolderZipped', false);
+
+                        try {
+                            const response = await fetch(uploadUrl, {
+                                method: 'POST',
+                                body: formData,
+                            });
+
+                            if (response.status === 200) {
+                                console.log('Upload successful.');
+                            } else {
+                                console.error('Upload failed.');
+                            }
+                        } catch (error) {
+                            console.error('Error during upload:', error);
+
+                             if (error.message) {
+                                console.error('Network error message:', error.message);
+                            }
+                            if (error.response) {
+                                // Access the response object for more details
+                                console.error('Network error response:', error.response);
+                            }
+                        }
+                    }
+                }
+            }
+
+            async function addFolderToZip(zip, folder, parentPath) {
+        const reader = folder.createReader();
+        const entries = await readEntries(reader);
+
+        for (const entry of entries) {
+          if (entry.isFile) {
+            const file = await readFile(entry);
+            zip.file(parentPath + entry.name, file);
+          } else if (entry.isDirectory) {
+            const subfolder = zip.folder(parentPath + entry.name + "/");
+            await addFolderToZip(subfolder, entry, parentPath + entry.name + "/");
+          }
+        }
+      }
+
+      async function readEntries(reader) {
+        return new Promise((resolve) => {
+          reader.readEntries(resolve);
+        });
+      }
+
+      function readFile(entry) {
+        return new Promise((resolve, reject) => {
+          entry.file(resolve, reject);
+        });
+      }
+        </script>
+    </body>
+
+</html>

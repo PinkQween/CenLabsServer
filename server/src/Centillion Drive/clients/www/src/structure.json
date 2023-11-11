@@ -1,0 +1,47 @@
+{
+    "folders": [
+        {
+            "name": "Folder 1",
+            "type": "folder",
+            "items": [
+                {
+                    "type": "file",
+                    "name": "Document 1",
+                    "path": "files/documents/document1.txt"
+                },
+                {
+                    "type": "file",
+                    "name": "Image 1",
+                    "path": "files/images/olive.png"
+                },
+                {
+                    "type": "folder",
+                    "name": "Subfolder 1",
+                    "items": [
+                        {
+                            "type": "file",
+                            "name": "Audio 1",
+                            "path": "files/audio/AMomentApart.mp3"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Folder 2",
+            "type": "folder",
+            "items": [
+                {
+                    "type": "file",
+                    "name": "Document 2",
+                    "path": "files/documents/document2.txt"
+                },
+                {
+                    "type": "file",
+                    "name": "Image 2",
+                    "path": "files/images/olive.png"
+                }
+            ]
+        }
+    ]
+}
