@@ -5,7 +5,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 
-const token = 'MTE2OTAyNDQyMzE2NTE3Mzc4MQ.GLLufl.FWd8VLEBTBNSpGP4t5mvpLub38cBivCgOIbsmw';
+const token = 'MTE2OTAyNDQyMzE2NTE3Mzc4MQ.GNLFKs.ay-9oTzRvWzm0LtuIpZaoxzVhMZx7gWxB2W9U4';
 const clientId = '1169024423165173781';
 const guildId = '1168706785310408704';
 

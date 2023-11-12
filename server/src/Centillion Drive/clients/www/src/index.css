@@ -82,26 +82,28 @@
 .animated-background {
     background-image: url('https://imageio.forbes.com/specials-images/imageserve/5ff33727caf4e1665e7d5bda/External-backup-disk-hard-drive-connected-to-laptop/0x0.jpg?format=jpg&crop=4895,3263,x12,y0,safe&width=960');
     background-size: cover;
-    padding-top: 66%;
-    height: 0;
+    /* padding-top: 66%; */
+    height: 100%;
+    display: flex;
+    flex: 1;
     transition: transform 0.5s ease-out;
     /* Add a transition for smooth animation */
     transform-origin: top;
 }
 
-.animated-background.show {
+/* .animated-background.show {
     transform: translateY(-100%);
-}
+} */
 
 .card {
-    background-color: white;
+    /* background-color: white; */
     border-radius: 5%;
-    margin: 3rem;
+    /* margin: 3rem; */
     text-align: center;
     padding: 6px;
-    width: 25rem;
     transition: all 0.25s ease-out;
-    padding-bottom: 5rem;
+    /* padding-bottom: 5rem; */
+    /* border: 2.5px solid #B50B7C; */
 }
 
 /* .card {
@@ -141,5 +143,46 @@
 } */
 
 .card:hover {
-    transform: translateY(-10rem);
+    /* transform: translateY(-10rem); */
+    transform: scale(1.03);
 }
+
+.scrolling-image-text {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+  }
+  
+  .scrolling-image-text.visible {
+    opacity: 1;
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .image-left {
+    flex-direction: row;
+  }
+  
+  .image-right {
+    flex-direction: row-reverse;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .text {
+    max-width: 60%;
+  }
+  
+  /* Add more styling as needed */
+  

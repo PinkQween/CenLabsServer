@@ -8,8 +8,8 @@ const express = require('express');
 const fs = require('fs');
 const serveIndex = require('serve-index');
 
-app.use(cors());
 app.use(fileUpload());
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -143,67 +143,72 @@ function deleteFolderRecursive(folderPath) {
 }
 
 app.post('/:email/upload', (req, res) => {
-    const email = req.params.email;
-    const isFolderZipped = req.body.isFolderZipped;
+    try {
+        const email = req.params.email;
+        const isFolderZipped = req.body.isFolderZipped;
 
-    console.log(req.files)
+        console.log(req.files)
 
-    const file = req.files.file;
-    const uploadPath = path.join(__dirname, '../../db', email);
+        const file = req.files.file;
+        const uploadPath = path.join(__dirname, '../../db', email);
 
-    if (!fs.existsSync(uploadPath)) {
-        try {
-            fs.mkdirSync(uploadPath);
-        } catch (err) {
-            console.error('Error creating upload directory:', err);
-            return res.status(500).send('Error creating upload directory: ' + err);
-        }
-    }
-
-    if (isFolderZipped != 'false') {
-        const zipFilePath = path.join(uploadPath, file.name);
-
-        file.mv(zipFilePath, (err) => {
-            if (err) {
-                console.error('Error moving folder:', err);
-                return res.status(500).send('Error moving folder: ' + err);
+        if (!fs.existsSync(uploadPath)) {
+            try {
+                fs.mkdirSync(uploadPath);
+            } catch (err) {
+                console.error('Error creating upload directory:', err);
+                return res.status(500).send('Error creating upload directory: ' + err);
             }
+        }
 
-            console.log(`unzip ${zipFilePath} -d ${uploadPath}`)
+        if (isFolderZipped != 'false') {
+            const zipFilePath = path.join(uploadPath, file.name);
 
-            const escapedZipFilePath = shellQuote.quote([zipFilePath]);
-            const escapedUploadDestination = shellQuote.quote([uploadPath]);
-
-            // Unzip the folder
-            exec(`unzip ${escapedZipFilePath} -d ${escapedUploadDestination}`, (error, stdout, stderr) => {
-                if (error) {
-                    res.status(500).send("Error extracting zip: " + error)
-                    return;
-                }
-                console.log(`Command output: ${stdout}`);
-
-                // Delete the zip file
-                fs.unlinkSync(zipFilePath);
-
-                res.send('Folder uploaded and extracted successfully.');
-            });
-        });
-    } else {
-        if (!blacklist.includes(file.name)) {
-            file.mv(path.join(uploadPath, file.name), (err) => {
+            file.mv(zipFilePath, (err) => {
                 if (err) {
-                    return res.status(500).send('Error moving file: ' + err);
+                    console.error('Error moving folder:', err);
+                    return res.status(500).send('Error moving folder: ' + err);
                 }
-                res.send('File uploaded successfully.');
+
+                console.log(`unzip ${zipFilePath} -d ${uploadPath}`)
+
+                const escapedZipFilePath = shellQuote.quote([zipFilePath]);
+                const escapedUploadDestination = shellQuote.quote([uploadPath]);
+
+                // Unzip the folder
+                exec(`unzip ${escapedZipFilePath} -d ${escapedUploadDestination}`, (error, stdout, stderr) => {
+                    if (error) {
+                        res.status(500).send("Error extracting zip: " + error)
+                        return;
+                    }
+                    console.log(`Command output: ${stdout}`);
+
+                    // Delete the zip file
+                    fs.unlinkSync(zipFilePath);
+
+                    res.send('Folder uploaded and extracted successfully.');
+                });
             });
         } else {
-            file.mv(path.join(uploadPath, `[RENAMED] ${file.name}`), (err) => {
-                if (err) {
-                    return res.status(500).send('Error moving file: ' + err);
-                }
-                res.send('File uploaded successfully.');
-            });
+            if (!blacklist.includes(file.name)) {
+                file.mv(path.join(uploadPath, file.name), (err) => {
+                    if (err) {
+                        return res.status(500).send('Error moving file: ' + err);
+                    }
+                    res.send('File uploaded successfully.');
+                });
+            } else {
+                file.mv(path.join(uploadPath, `[RENAMED] ${file.name}`), (err) => {
+                    if (err) {
+                        return res.status(500).send('Error moving file: ' + err);
+                    }
+                    res.send('File uploaded successfully.');
+                });
+            }
         }
+    } catch (error) {
+        console.log('Error processing file upload:', error);
+        res.status(500).send('Internal Server Error');
     }
 });
 
