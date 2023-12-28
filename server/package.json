@@ -4,7 +4,7 @@
   "main": "src/index.js",
   "license": "MIT",
   "dependencies": {
-    "@discordjs/builders": "^1.6.5",
+    "@discordjs/builders": "^1.7.0",
     "@discordjs/rest": "^2.0.1",
     "adm-zip": "^0.5.10",
     "bcrypt": "^5.1.1",
