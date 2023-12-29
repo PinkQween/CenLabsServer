@@ -6,6 +6,7 @@
   "dependencies": {
     "@discordjs/builders": "^1.6.5",
     "@discordjs/rest": "^2.0.1",
+    "@vonage/server-sdk": "^3.11.0",
     "adm-zip": "^0.5.10",
     "axios": "^1.6.2",
     "bcrypt": "^5.1.1",
@@ -43,7 +44,7 @@
     "socket.io": "^4.7.2",
     "speakeasy": "^2.0.0",
     "stripe": "^14.3.0",
-    "twilio": "^4.19.0",
+    "twilio": "^4.20.0",
     "uuid": "^9.0.1",
     "yargs": "^17.7.2"
   },

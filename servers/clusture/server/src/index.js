@@ -9,7 +9,7 @@ const speakeasy = require('speakeasy');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const fileUpload = require('express-fileupload');
-var csrf = require('csurf');
+const csrf = require('csurf');
 
 const temporarilyAllowedIPs = new Map()
 
@@ -25,7 +25,6 @@ process.on('message', (message) => {
 
 const app = express();
 
-app.use(csrf());
 app.disable('x-powered-by');
 app.use(cors())
 app.use(fileUpload())
@@ -506,10 +505,13 @@ app.all('*', async (req, res) => {
 
         const fetchOptions = {
             method, // Forward the original HTTP method
-            // headers: req.headers || undefined,
-            headers: method !== "GET" ? {'Content-Type': 'application/json'} : undefined,
+            headers: {
+                ...(req.headers['authorization'] && { 'Authorization': req.headers['authorization'] }), // Include 'Authorization' header if it exists
+                ...(method !== "GET" && { 'Content-Type': 'application/json' }), // Include 'Content-Type' header for non-GET requests
+            },
             body: method !== "GET" ? JSON.stringify(req.body) : undefined,
         };
+
 
         console.log(fetchOptions)
 

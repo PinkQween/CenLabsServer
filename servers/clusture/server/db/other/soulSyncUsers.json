@@ -1,8 +1,11 @@
 [
   {
     "username": "Hanna Skairipa",
-    "phoneNumber": "+19706917604",
     "birthdate": "08/10/12",
-    "hashedPassword": "$2b$10$ELY7q64IMVgABPvu0Cda/eIRLlCypuDGOPFkj0zu3avSfA0xo1MHi"
+    "phoneNumber": "+19706917604",
+    "hashedPassword": "$2b$10$YvbI1xgeUr2G6Lnp0hj59O/q/sq7H2Z28ZIIANT0tThFZcOv0wkOK",
+    "code": 751411,
+    "verified": true,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuZXdVc2VyIjp7InVzZXJuYW1lIjoiSGFubmEgU2thaXJpcGEiLCJiaXJ0aGRhdGUiOiIwOC8xMC8xMiIsInBob25lTnVtYmVyIjoiKzE5NzA2OTE3NjA0IiwiaGFzaGVkUGFzc3dvcmQiOiIkMmIkMTAkWXZiSTF4Z2VVcjJHNkxucDBoajU5Ty9xL3NxN0gyWjI4WklJQU5UMHRUaEZaY092MHdrT0siLCJjb2RlIjo3NTE0MTEsInZlcmlmaWVkIjpmYWxzZX0sImlhdCI6MTcwMzg2NjcxNn0.VCNMlIfV_uUYcPpDE-fPduUXEFhcV9nJ8fTZAhTJpw0"
   }
 ]
