@@ -65,6 +65,8 @@ module.exports = {
             const filePath = path.join(__dirname, '../../db/other/soulSyncUsers.json');
             const jsonData = JSON.stringify(userData, null, 2);
 
+            console.log(userData)
+
             fs.writeFileSync(filePath, jsonData, 'utf-8');
         };
 
@@ -227,6 +229,8 @@ module.exports = {
         // Endpoint for adding details
         app.post('/details', auth, (req, res) => {
             const { gender, sex, interests, sexuality, relationshipStatus } = req.body;
+
+            console.log(req.user.newUser)
 
             // Find the user by phone number
             const user = findUserByPhoneNumber(req.user.newUser.phoneNumber)

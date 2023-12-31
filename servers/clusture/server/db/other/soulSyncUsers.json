@@ -3,9 +3,40 @@
     "username": "Hanna Skairipa",
     "birthdate": "08/10/12",
     "phoneNumber": "+19706917604",
-    "hashedPassword": "$2b$10$YvbI1xgeUr2G6Lnp0hj59O/q/sq7H2Z28ZIIANT0tThFZcOv0wkOK",
-    "code": 751411,
+    "hashedPassword": "$2b$10$9msF1idPGk9lcuoFXXtSh.OKblSbzUFVbNKMvp7Sm0hLw2tzxm2cq",
+    "code": 732100,
     "verified": true,
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuZXdVc2VyIjp7InVzZXJuYW1lIjoiSGFubmEgU2thaXJpcGEiLCJiaXJ0aGRhdGUiOiIwOC8xMC8xMiIsInBob25lTnVtYmVyIjoiKzE5NzA2OTE3NjA0IiwiaGFzaGVkUGFzc3dvcmQiOiIkMmIkMTAkWXZiSTF4Z2VVcjJHNkxucDBoajU5Ty9xL3NxN0gyWjI4WklJQU5UMHRUaEZaY092MHdrT0siLCJjb2RlIjo3NTE0MTEsInZlcmlmaWVkIjpmYWxzZX0sImlhdCI6MTcwMzg2NjcxNn0.VCNMlIfV_uUYcPpDE-fPduUXEFhcV9nJ8fTZAhTJpw0"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuZXdVc2VyIjp7InVzZXJuYW1lIjoiSGFubmEgU2thaXJpcGEiLCJiaXJ0aGRhdGUiOiIwOC8xMC8xMiIsInBob25lTnVtYmVyIjoiKzE5NzA2OTE3NjA0IiwiaGFzaGVkUGFzc3dvcmQiOiIkMmIkMTAkOW1zRjFpZFBHazlsY3VvRlhYdFNoLk9LYmxTYnpVRlZiTktNdnA3U20waEx3MnR6eG0yY3EiLCJjb2RlIjo3MzIxMDAsInZlcmlmaWVkIjpmYWxzZX0sImlhdCI6MTcwMzg3OTMxOH0.6vtEMhQM6KdSZBvJpYqIHu2JtiNRqPxCJKaJcI0lzg8",
+    "details": {
+      "gender": [
+        "Female"
+      ],
+      "sex": [
+        "Male"
+      ],
+      "sexuality": [
+        "Pansexual"
+      ],
+      "relationshipStatus": [
+        "Single"
+      ]
+    },
+    "preferences": {
+      "gender": [
+        "Female"
+      ],
+      "sex": [
+        "Female"
+      ],
+      "sexuality": [
+        "Pansexual"
+      ],
+      "relationshipStatus": [
+        "Single"
+      ],
+      "ageRange": [
+        "±2"
+      ]
+    }
   }
 ]
