@@ -390,6 +390,8 @@ const appProxy = express();
 const appCat = express();
 const appSearch = express();
 const appSoulSync = express()
+const appSoulSyncDev = express()
+const appNotifyTest = express()
 // Set up routes for each service
 require('./Centillion Drive/detailedServer.js').setupRoutes(appDrive);
 require('./Centillion Drive DB/detailedServer.js').setupRoutes(appDriveDB);
@@ -398,6 +400,8 @@ require('./Centillion Drive Proxy/detailedServer.js').setupRoutes(appProxy);
 require('./Cat Stack Stripe/detailedServer.js').setupRoutes(appCat);
 require('./Centillion Labs Search/detailedServer.js').setupRoutes(appSearch);
 require('./SoulSync/detailedServer.js').setupRoutes(appSoulSync);
+require('./SoulSync (dev tests)/detailedServer.js').setupRoutes(appSoulSyncDev);
+require('./notify.test.js').setupRoutes(appNotifyTest);
 
 // Listen on different ports for each service
 const ports = {
@@ -407,7 +411,9 @@ const ports = {
     proxy: 3004,
     cat: 3005,
     search: 3006,
-    soulSync: 3007
+    soulSync: 3007,
+    soulSyncDev: 3008,
+    notifyTest: 3009
 };
 
 const allServerDetails = {
@@ -439,6 +445,14 @@ const allServerDetails = {
         port: ports.soulSync,
         domains: ["ss.cendrive.com"]
     },
+    soulSyncDev: {
+        port: ports.soulSyncDev,
+        domains: ["dev-ss.cendrive.com"]
+    },
+    notifyTest: {
+        port: ports.notifyTest,
+        domains: ["push.cendrive.com"]
+    }
 }
 
 appDrive.listen(ports.drive, () => {
@@ -466,7 +480,15 @@ appSearch.listen(ports.search, () => {
 });
 
 appSoulSync.listen(ports.soulSync, () => {
-    console.log(`Centillion Labs Search is running on http://localhost:${ports.soulSync}`);
+    console.log(`SoulSync is running on http://localhost:${ports.soulSync}`);
+});
+
+appSoulSyncDev.listen(ports.soulSyncDev, () => {
+    console.log(`SoulSync (dev tests) is running on http://localhost:${ports.soulSyncDev}`);
+});
+
+appNotifyTest.listen(ports.notifyTest, () => {
+    console.log(`Notify Test is running on http://localhost:${ports.notifyTest}`);
 });
 
 app.all('*', async (req, res) => {
@@ -503,10 +525,13 @@ app.all('*', async (req, res) => {
         console.log(targetURL)
         console.log("Body: " + JSON.stringify(req.body))
 
+        console.log(`AUTHGHHHHH; ${req.header('Authorization')}`)
+        console.log(req.headers)
+
         const fetchOptions = {
             method, // Forward the original HTTP method
             headers: {
-                ...(req.headers['authorization'] && { 'Authorization': req.headers['authorization'] }), // Include 'Authorization' header if it exists
+                ...(req.headers['Authorization'] && { 'Authorization': req.headers['Authorization'] }), // Include 'Authorization' header if it exists
                 ...(method !== "GET" && { 'Content-Type': 'application/json' }), // Include 'Content-Type' header for non-GET requests
             },
             body: method !== "GET" ? JSON.stringify(req.body) : undefined,
@@ -565,6 +590,7 @@ app.listen(argv.httpPort, () => {
 
 const startAllBots = require('./bot/startAllBots.js');
 const { hostname } = require('os');
+const { CommandInteractionOptionResolver } = require('discord.js');
 if (!argv.dontStartBots) {
     startAllBots(argv.botsToNotStart)
 }

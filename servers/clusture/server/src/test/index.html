@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Push Notification Sender</title>
+</head>
+
+<body>
+    <h1>Push Notification Sender</h1>
+    <form action="/send-notification" method="post" id="notificationForm">
+        <label for="message">Enter Notification Message:</label>
+        <input type="text" id="message" name="message" required>
+        <button type="submit">Send Notification</button>
+    </form>
+
+   <script>
+    // Add event listener for form submission
+    document.getElementById('notificationForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent default form submission
+        sendPushNotification(); // Manually trigger the push notification
+    });
+
+    // Add event listener for Enter key press in the input field
+    document.getElementById('message').addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevent default form submission
+            sendPushNotification(); // Manually trigger the push notification
+        }
+    });
+
+    function sendPushNotification() {
+        // Get the notification message from the input field
+        const notificationMessage = document.getElementById('message').value;
+
+        // Use fetch to send the notification
+        fetch(`/send-notification`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                message: notificationMessage,
+            }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Notification sent successfully:', data);
+            })
+            .catch(error => {
+                console.error('Error sending notification:', error);
+            })
+            .finally(() => {
+                // Reset the form after the notification is sent
+                location.reload()
+            });
+    }
+</script>
+</body>
+
+</html>

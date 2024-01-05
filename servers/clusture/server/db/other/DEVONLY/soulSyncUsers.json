@@ -1,0 +1,355 @@
+[
+  {
+    "username": "Hanna Skairipa",
+    "birthdate": "12/10/08",
+    "phoneNumber": "+19706917604",
+    "hashedPassword": "$2b$10$9msF1idPGk9lcuoFXXtSh.OKblSbzUFVbNKMvp7Sm0hLw2tzxm2cq",
+    "code": 732100,
+    "verified": true,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuZXdVc2VyIjp7InVzZXJuYW1lIjoiSGFubmEgU2thaXJpcGEiLCJiaXJ0aGRhdGUiOiIwOC8xMC8xMiIsInBob25lTnVtYmVyIjoiKzE5NzA2OTE3NjA0IiwiaGFzaGVkUGFzc3dvcmQiOiIkMmIkMTAkOW1zRjFpZFBHazlsY3VvRlhYdFNoLk9LYmxTYnpVRlZiTktNdnA3U20waEx3MnR6eG0yY3EiLCJjb2RlIjo3MzIxMDAsInZlcmlmaWVkIjpmYWxzZX0sImlhdCI6MTcwMzg3OTMxOH0.6vtEMhQM6KdSZBvJpYqIHu2JtiNRqPxCJKaJcI0lzg8",
+    "details": {
+      "gender": [
+        "Female"
+      ],
+      "sex": [
+        "Male"
+      ],
+      "sexuality": [
+        "Pansexual"
+      ],
+      "relationshipStatus": [
+        "Single"
+      ]
+    },
+    "preferences": {
+      "gender": [
+        "Female"
+      ],
+      "sex": [
+        "Female"
+      ],
+      "sexuality": [
+        "Pansexual"
+      ],
+      "relationshipStatus": [
+        "Single"
+      ],
+      "ageRange": [
+        "±2"
+      ]
+    },
+    "likes": [
+      "+19083966227"
+    ],
+    "premiumLikes": [
+      "+16192034092"
+    ],
+    "seen": [
+      "+19083966227",
+      "+13034087208",
+      "+16192034092"
+    ]
+  },
+
+  {
+    "username": "Olive Ascani",
+    "birthdate": "12/10/08",
+    "phoneNumber": "+16192034092",
+    "hashedPassword": "$2b$10$9msF1idPGk9lcuoFXXtSh.OKblSbzUFVbNKMvp7Sm0hLw2tzxm2cq",
+    "code": 732100,
+    "verified": true,
+    "token": "fdgtvrehvetyer5.eyJuZXdVc2VyIjp7InVzZXJuYW1lIjoiSGFubmEgU2thaXJpcGEiLCJiaXJ0aGRhdGUiOiIwOC8xMC8xMiIsInBob25lTnVtYmVyIjoiKzE5NzA2OTE3NjA0IiwiaGFzaGVkUGFzc3dvcmQiOiIkMmIkMTAkOW1zRjFpZFBHazlsY3VvRlhYdFNoLk9LYmxTYnpVRlZiTktNdnA3U20waEx3MnR6eG0yY3EiLCJjb2RlIjo3MzIxMDAsInZlcmlmaWVkIjpmYWxzZX0sImlhdCI6MTcwMzg3OTMxOH0.6vtEMhQM6KdSZBvJpYqIHu2JtiNRqPxCJKaJcI0lzg8",
+    "details": {
+      "gender": [
+        "Female"
+      ],
+      "sex": [
+        "Male"
+      ],
+      "sexuality": [
+        "Straight"
+      ],
+      "relationshipStatus": [
+        "Single"
+      ]
+    },
+    "preferences": {
+      "gender": [
+        "Female"
+      ],
+      "sex": [
+        "Male"
+      ],
+      "sexuality": [
+        "Pansexual"
+      ],
+      "relationshipStatus": [
+        "Single"
+      ],
+      "ageRange": [
+        "±4"
+      ]
+    },
+    "likes": [
+      "+13034087208"
+    ],
+    "premiumLikes": [
+      "+19706917604"
+    ],
+    "seen": [
+      "+19083966227",
+      "+19706917604",
+      "+13034087208"
+    ]
+  },
+  {
+    "username": "Sophie Stardust",
+    "birthdate": "06/18/10",
+    "phoneNumber": "+19876543211",
+    "hashedPassword": "$2b$10$1aTqR8PSjM8KXQ.wKtOwKuJNHm46Bc6fdjR7tYiSQJZZXZ3ZU/sYC",
+    "code": 987654,
+    "verified": true,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "details": {
+      "gender": ["Female"],
+      "sex": ["Female"],
+      "sexuality": ["Pansexual"],
+      "relationshipStatus": ["Single"]
+    },
+    "preferences": {
+      "gender": ["Male"],
+      "sex": ["Female"],
+      "sexuality": ["Pansexual"],
+      "relationshipStatus": ["Single"],
+      "ageRange": ["±2"]
+    },
+    "likes": ["+19087654322"],
+    "premiumLikes": ["+16543218766"],
+    "seen": ["+19087654322", "+19876543211", "+16543218766"]
+  },
+  {
+    "username": "Aiden Nebula",
+    "birthdate": "10/03/09",
+    "phoneNumber": "+16504321877",
+    "hashedPassword": "$2b$10$Uf1UMVsGKuEUG3s4Xp7eV.CA/6BBP0tY7IyLq9dLpPCLkY7iDzGCS",
+    "code": 876543,
+    "verified": true,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "details": {
+      "gender": ["Male"],
+      "sex": ["Male"],
+      "sexuality": ["Heterosexual"],
+      "relationshipStatus": ["Single"]
+    },
+    "preferences": {
+      "gender": ["Female"],
+      "sex": ["Male"],
+      "sexuality": ["Heterosexual"],
+      "relationshipStatus": ["Single"],
+      "ageRange": ["±2"]
+    },
+    "likes": ["+16504321877"],
+    "premiumLikes": ["+17890654322"],
+    "seen": ["+16504321877", "+15432109877", "+17890654322"]
+  },
+  {
+    "username": "Isabella Quantum",
+    "birthdate": "04/14/11",
+    "phoneNumber": "+12098765433",
+    "hashedPassword": "$2b$10$wTqyWd7LahB8MkJQ3KuURuJ4gH2F7Nz3n4.dIJgWmSdO8OrJp4Y4O",
+    "code": 765432,
+    "verified": true,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "details": {
+      "gender": ["Female"],
+      "sex": ["Female"],
+      "sexuality": ["Bisexual"],
+      "relationshipStatus": ["Single"]
+    },
+    "preferences": {
+      "gender": ["Male"],
+      "sex": ["Female"],
+      "sexuality": ["Bisexual"],
+      "relationshipStatus": ["Single"],
+      "ageRange": ["±2"]
+    },
+    "likes": ["+12098765433"],
+    "premiumLikes": ["+15432109877"],
+    "seen": ["+12098765433", "+14321098776", "+15432109877"]
+  },
+  {
+    "username": "Mason Nova",
+    "birthdate": "08/27/10",
+    "phoneNumber": "+17654321099",
+    "hashedPassword": "$2b$10$CixTrpFplqVvjxF0GpVKR.BxXaGXW/IjIVoZy6tTjKZxFQpkS9FZ6",
+    "code": 654321,
+    "verified": true,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "details": {
+      "gender": ["Male"],
+      "sex": ["Male"],
+      "sexuality": ["Homosexual"],
+      "relationshipStatus": ["Single"]
+    },
+    "preferences": {
+      "gender": ["Male"],
+      "sex": ["Male"],
+      "sexuality": ["Homosexual"],
+      "relationshipStatus": ["Single"],
+      "ageRange": ["±2"]
+    },
+    "likes": ["+17654321099"],
+    "premiumLikes": ["+18765432110"],
+    "seen": ["+17654321099", "+16543210988", "+18765432110"]
+  },
+  {
+    "username": "Ella Celestia",
+    "birthdate": "01/19/09",
+    "phoneNumber": "+18907654322",
+    "hashedPassword": "$2b$10$vjmcYruMK2V67aflH8kpe.dAMbTHqOu2y.9nXMnFRBGUUsb2oZAY6",
+    "code": 234567,
+    "verified": true,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "details": {
+      "gender": ["Female"],
+      "sex": ["Female"],
+      "sexuality": ["Pansexual"],
+      "relationshipStatus": ["Single"]
+    },
+    "preferences": {
+      "gender": ["Male"],
+      "sex": ["Female"],
+      "sexuality": ["Pansexual"],
+      "relationshipStatus": ["Single"],
+      "ageRange": ["±2"]
+    },
+    "likes": ["+18907654322"],
+    "premiumLikes": ["+17654321099"],
+    "seen": ["+18907654322", "+16543210988", "+17654321099"]
+  },
+  {
+    "username": "Noah Galaxy",
+    "birthdate": "11/04/11",
+    "phoneNumber": "+17654321100",
+    "hashedPassword": "$2b$10$1aTqR8PSjM8KXQ.wKtOwKuJNHm46Bc6fdjR7tYiSQJZZXZ3ZU/sYC",
+    "code": 123456,
+    "verified": true,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "details": {
+      "gender": ["Male"],
+      "sex": ["Male"],
+      "sexuality": ["Heterosexual"],
+      "relationshipStatus": ["Single"]
+    },
+    "preferences": {
+      "gender": ["Female"],
+      "sex": ["Male"],
+      "sexuality": ["Heterosexual"],
+      "relationshipStatus": ["Single"],
+      "ageRange": ["±2"]
+    },
+    "likes": ["+17654321100"],
+    "premiumLikes": ["+16543218767"],
+    "seen": ["+17654321100", "+19876543212", "+16543218767"]
+  },
+  {
+    "username": "Ava Comet",
+    "birthdate": "05/29/10",
+    "phoneNumber": "+16504321878",
+    "hashedPassword": "$2b$10$Uf1UMVsGKuEUG3s4Xp7eV.CA/6BBP0tY7IyLq9dLpPCLkY7iDzGCS",
+    "code": 345678,
+    "verified": true,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "details": {
+      "gender": ["Female"],
+      "sex": ["Female"],
+      "sexuality": ["Bisexual"],
+      "relationshipStatus": ["Single"]
+    },
+    "preferences": {
+      "gender": ["Male"],
+      "sex": ["Female"],
+      "sexuality": ["Bisexual"],
+      "relationshipStatus": ["Single"],
+      "ageRange": ["±2"]
+    },
+    "likes": ["+16504321878"],
+    "premiumLikes": ["+17890654323"],
+    "seen": ["+16504321878", "+15432109878", "+17890654323"]
+  },
+  {
+    "username": "Lucas Quasar",
+    "birthdate": "09/11/09",
+    "phoneNumber": "+12098765434",
+    "hashedPassword": "$2b$10$wTqyWd7LahB8MkJQ3KuURuJ4gH2F7Nz3n4.dIJgWmSdO8OrJp4Y4O",
+    "code": 876543,
+    "verified": true,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "details": {
+      "gender": ["Male"],
+      "sex": ["Male"],
+      "sexuality": ["Homosexual"],
+      "relationshipStatus": ["Single"]
+    },
+    "preferences": {
+      "gender": ["Male"],
+      "sex": ["Male"],
+      "sexuality": ["Homosexual"],
+      "relationshipStatus": ["Single"],
+      "ageRange": ["±2"]
+    },
+    "likes": ["+12098765434"],
+    "premiumLikes": ["+15432109878"],
+    "seen": ["+12098765434", "+14321098777", "+15432109878"]
+  },
+  {
+    "username": "Lily Starlight",
+    "birthdate": "02/24/11",
+    "phoneNumber": "+17654321101",
+    "hashedPassword": "$2b$10$CixTrpFplqVvjxF0GpVKR.BxXaGXW/IjIVoZy6tTjKZxFQpkS9FZ6",
+    "code": 654321,
+    "verified": true,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "details": {
+      "gender": ["Female"],
+      "sex": ["Female"],
+      "sexuality": ["Pansexual"],
+      "relationshipStatus": ["Single"]
+    },
+    "preferences": {
+      "gender": ["Male"],
+      "sex": ["Female"],
+      "sexuality": ["Pansexual"],
+      "relationshipStatus": ["Single"],
+      "ageRange": ["±2"]
+    },
+    "likes": ["+17654321101"],
+    "premiumLikes": ["+18765432111"],
+    "seen": ["+17654321101", "+16543210989", "+18765432111"]
+  },
+  {
+    "username": "Ben Nova",
+    "birthdate": "12/13/08",
+    "phoneNumber": "+18907654323",
+    "hashedPassword": "$2b$10$vjmcYruMK2V67aflH8kpe.dAMbTHqOu2y.9nXMnFRBGUUsb2oZAY6",
+    "code": 234567,
+    "verified": true,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "details": {
+      "gender": ["Male"],
+      "sex": ["Male"],
+      "sexuality": ["Heterosexual"],
+      "relationshipStatus": ["Single"]
+    },
+    "preferences": {
+      "gender": ["Female"],
+      "sex": ["Male"],
+      "sexuality": ["Heterosexual"],
+      "relationshipStatus": ["Single"],
+      "ageRange": ["±2"]
+    },
+    "likes": ["+18907654323"],
+    "premiumLikes": ["+17654321101"],
+    "seen": ["+18907654323", "+16543210989", "+17654321101"]
+  }
+]

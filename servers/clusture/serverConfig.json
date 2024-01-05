@@ -1,0 +1,13 @@
+{
+    "ports": {
+        "drive": 3001,
+        "driveDB": 3002,
+        "auth": 3003,
+        "proxy": 3004,
+        "cat": 3005,
+        "search": 3006,
+        "soulSync": 3007,
+        "soulSyncDev": 3008,
+        "notifyTest": 3009
+    }
+}
