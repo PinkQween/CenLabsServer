@@ -65,27 +65,12 @@ const fs = require('fs');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 
-const deviceToken =
-    '3be968aeb54b4a72480e3e2ac649495244db336734ef721d26a6130d44d77acb';
-const host = 'https://api.sandbox.push.apple.com';
-const path = '/3/device/' + deviceToken;
+// const deviceToken =
+//     'd275e0c619c74d6a566d751a30606a92e5cdb7f3633b63085019f597f3b19d70';
+const hostProd = 'https://api.push.apple.com';
+const hostDev = 'https://api.sandbox.push.apple.com';
 
-const client = http2.connect(host, {
-    key: fs.readFileSync(__dirname + '/certs/cert.key.pem'),
-    cert: fs.readFileSync(__dirname + '/certs/cert.crt.pem'),
-    passphrase: process.env.PUSH_PHRASE
-});
-
-client.on('error', (err) => {
-    console.error('HTTP/2 Client Error:', err);
-    // Handle the error, close the session, or perform necessary actions
-    if (!client.closed) {
-        // Close the session only if it's not already closed
-        client.close();
-    }
-});
-
-function sendPushNotification(notificationMessage) {
+function sendPushNotification(notificationMessage, deviceToken, client, path) {
     const body = {
         aps: {
             alert: notificationMessage,
@@ -154,21 +139,25 @@ module.exports = {
         });
 
         app.post('/send-notification', (req, res) => {
-            const notificationMessage = req.body.message;
+            const { message, deviceToken, environmentValue } = req.body;
 
-            console.log('Notification Message:', notificationMessage);
+            const host = environmentValue == "dev" ? hostDev : hostProd
+
+            const path = '/3/device/' + deviceToken;
+
+
+            const client = http2.connect(host, {
+                key: fs.readFileSync(__dirname + '/certs/cert.key.pem'),
+                cert: fs.readFileSync(__dirname + '/certs/cert.crt.pem'),
+                passphrase: process.env.PUSH_PHRASE
+            });
 
             // Trigger the push notification
-            sendPushNotification(notificationMessage);
-            
-            const script = `
-        <script>
-            alert('Push notification sent successfully!');
-            document.getElementById('myForm').reset(); // Assuming your form has the id 'myForm'
-        </script>
-    `;
+            sendPushNotification(message, deviceToken, client, path);
 
-            res.send(script);
+            console.log(message, deviceToken, host, path)
+
+            res.send("OK")
         });
     },
 };

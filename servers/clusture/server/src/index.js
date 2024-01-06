@@ -531,7 +531,7 @@ app.all('*', async (req, res) => {
         const fetchOptions = {
             method, // Forward the original HTTP method
             headers: {
-                ...(req.headers['Authorization'] && { 'Authorization': req.headers['Authorization'] }), // Include 'Authorization' header if it exists
+                'Authorization': req.header('Authorization'), // Include 'Authorization' header if it exists
                 ...(method !== "GET" && { 'Content-Type': 'application/json' }), // Include 'Content-Type' header for non-GET requests
             },
             body: method !== "GET" ? JSON.stringify(req.body) : undefined,

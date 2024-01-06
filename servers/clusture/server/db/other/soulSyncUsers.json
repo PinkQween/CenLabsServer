@@ -1,42 +1,25 @@
 [
   {
-    "username": "Hanna Skairipa",
-    "birthdate": "08/10/12",
+    "username": "Ms. Hanna Parker Skairipa",
+    "birthdate": "05/01/24",
     "phoneNumber": "+19706917604",
-    "hashedPassword": "$2b$10$9msF1idPGk9lcuoFXXtSh.OKblSbzUFVbNKMvp7Sm0hLw2tzxm2cq",
-    "code": 732100,
+    "hashedPassword": "$2b$10$kBZmpvhfrN6ON840/xCDl.y.WuyrkAz96oypa5f29717c4G6iCzym",
+    "code": 333349,
+    "deviceID": "",
     "verified": true,
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuZXdVc2VyIjp7InVzZXJuYW1lIjoiSGFubmEgU2thaXJpcGEiLCJiaXJ0aGRhdGUiOiIwOC8xMC8xMiIsInBob25lTnVtYmVyIjoiKzE5NzA2OTE3NjA0IiwiaGFzaGVkUGFzc3dvcmQiOiIkMmIkMTAkOW1zRjFpZFBHazlsY3VvRlhYdFNoLk9LYmxTYnpVRlZiTktNdnA3U20waEx3MnR6eG0yY3EiLCJjb2RlIjo3MzIxMDAsInZlcmlmaWVkIjpmYWxzZX0sImlhdCI6MTcwMzg3OTMxOH0.6vtEMhQM6KdSZBvJpYqIHu2JtiNRqPxCJKaJcI0lzg8",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuZXdVc2VyIjp7InVzZXJuYW1lIjoiTXMuIEhhbm5hIFBhcmtlciBTa2FpcmlwYSIsImJpcnRoZGF0ZSI6IjA1LzAxLzI0IiwicGhvbmVOdW1iZXIiOiIrMTk3MDY5MTc2MDQiLCJoYXNoZWRQYXNzd29yZCI6IiQyYiQxMCRrQlptcHZoZnJONk9OODQwL3hDRGwueS5XdXlya0F6OTZveXBhNWYyOTcxN2M0RzZpQ3p5bSIsImNvZGUiOjMzMzM0OSwiZGV2aWNlSUQiOiIiLCJ2ZXJpZmllZCI6ZmFsc2V9LCJpYXQiOjE3MDQ0OTY0OTZ9._6uie7T1SQX0G0-vy9WodDgoaeCOwhchEMWkqopDNMw",
     "details": {
-      "gender": [
-        "Female"
-      ],
-      "sex": [
-        "Male"
-      ],
-      "sexuality": [
-        "Pansexual"
-      ],
-      "relationshipStatus": [
-        "Single"
-      ]
+      "gender": [],
+      "sex": [],
+      "sexuality": [],
+      "relationshipStatus": []
     },
     "preferences": {
-      "gender": [
-        "Female"
-      ],
-      "sex": [
-        "Female"
-      ],
-      "sexuality": [
-        "Pansexual"
-      ],
-      "relationshipStatus": [
-        "Single"
-      ],
-      "ageRange": [
-        "±2"
-      ]
+      "gender": [],
+      "sex": [],
+      "sexuality": [],
+      "relationshipStatus": [],
+      "ageRange": []
     }
   }
 ]

@@ -19,6 +19,31 @@ module.exports = {
         // Parse JSON bodies
         app.use(bodyParser.json());
 
+        const checkForUpdates = () => {
+            console.log("Checking for updates...");
+
+            // Example: Delete temporary users older than 10 minutes
+            const currentTime = new Date().getTime();
+            userData = userData.filter((user) => {
+                if (user.temp && currentTime - user.createdAt > 10 * 60 * 1000) {
+                    console.log(`Deleting temporary user: ${user.phoneNumber}`);
+                    return false;
+                }
+                return true;
+            });
+        };
+
+        // Schedule the function to run every 250ms
+        setInterval(checkForUpdates, 250);
+
+        // Schedule a function to delete temporary users after 10 minutes
+        setTimeout(() => {
+            console.log("Deleting temporary users older than 10 minutes...");
+            userData = userData.filter(
+                (user) => !user.temp || new Date().getTime() - user.createdAt <= 10 * 60 * 1000
+            );
+        }, 10 * 60 * 1000);
+
         const auth = (req, res, next) => {
             // Get token from header
             const token = req.header('Authorization').split(' ')[1];
@@ -90,7 +115,7 @@ module.exports = {
 
         // Endpoint for user registration
         app.post('/signup', async (req, res) => {
-            const { username, phoneNumber, password, confirmPassword, birthdate } = req.body;
+            const { username, phoneNumber, password, confirmPassword, birthdate, deviceID } = req.body;
 
             // console.log(phoneNumber);
 
@@ -116,12 +141,17 @@ module.exports = {
                 phoneNumber,
                 hashedPassword,
                 code,
-                verified: false
+                deviceID,
+                verified: false,
+                temp: true,
+                createdAt: new Date().getTime()
             };
 
             newUser.token = jwt.sign({ newUser }, process.env.JWT_SECRET);
 
             userData.push(newUser);
+
+            saveUserDataToFile();
 
             // // Send phone confirmation using Sinch
             // const basicAuthentication = `${sinchAppKey}:${sinchAppSecret}`;
@@ -191,6 +221,7 @@ module.exports = {
 
             // Update user status or perform any other actions as needed
             user.verified = true;
+            user.temp = false; 
 
             // Save user data
             saveUserDataToFile();

@@ -231,7 +231,7 @@
     "username": "Noah Galaxy",
     "birthdate": "11/04/11",
     "phoneNumber": "+17654321100",
-    "hashedPassword": "$2b$10$1aTqR8PSjM8KXQ.wKtOwKuJNHm46Bc6fdjR7tYiSQJZZXZ3ZU/sYC",
+    "hashedPassword": "$2b$10$1aTqR8PSjM8KXQ.wKtOwKuJNHm46Bc6fdjR7tYiSQJZZXZ3ZU/YC",
     "code": 123456,
     "verified": true,
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",

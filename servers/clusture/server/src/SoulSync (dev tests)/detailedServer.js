@@ -306,57 +306,66 @@ module.exports = {
             // Compare preferences and details, increase score for each match
             for (const key in currentUser.preferences) {
                 if (
+                    currentUser.preferences[key] && otherUser.preferences[key] &&
                     currentUser.preferences[key].some(value => otherUser.preferences[key].includes(value)) &&
-                    otherUser.details[key].some(value => currentUser.preferences[key].includes(value))
+                    otherUser.details[key] && otherUser.details[key].some(value => currentUser.preferences[key].includes(value))
                 ) {
                     score++;
                 }
 
                 if (
+                    otherUser.preferences[key] && currentUser.preferences[key] &&
                     otherUser.preferences[key].some(value => currentUser.preferences[key].includes(value)) &&
-                    currentUser.details[key].some(value => otherUser.preferences[key].includes(value))
+                    currentUser.details[key] && currentUser.details[key].some(value => otherUser.preferences[key].includes(value))
                 ) {
                     score++;
                 }
             }
 
             // Check if there's a like or premium like, increase score accordingly
-            if (currentUser.likes.includes(otherUser.phoneNumber)) {
+            if (currentUser.likes && otherUser.phoneNumber && currentUser.likes.includes(otherUser.phoneNumber)) {
                 score += 2; // Increase score for a regular like
-            } else if (currentUser.premiumLikes.includes(otherUser.phoneNumber)) {
+            } else if (currentUser.premiumLikes && otherUser.phoneNumber && currentUser.premiumLikes.includes(otherUser.phoneNumber)) {
                 score += 3; // Increase score even more for a premium like
             }
 
             // Consider age range, adjust score based on the age difference
-            const currentUserBirthdate = new Date(currentUser.birthdate);
-            const otherUserBirthdate = new Date(otherUser.birthdate);
-            const ageDifference = Math.abs(currentUserBirthdate.getFullYear() - otherUserBirthdate.getFullYear());
+            if (
+                currentUser.birthdate && otherUser.birthdate &&
+                currentUser.preferences.ageRange && currentUser.preferences.ageRange.length > 0
+            ) {
+                const currentUserBirthdate = new Date(currentUser.birthdate);
+                const otherUserBirthdate = new Date(otherUser.birthdate);
+                const ageDifference = Math.abs(currentUserBirthdate.getFullYear() - otherUserBirthdate.getFullYear());
 
-            const allowedAgeRange = parseInt(currentUser.preferences.ageRange[0]); // Assuming ageRange is in the format "±X"
+                const allowedAgeRange = parseInt(currentUser.preferences.ageRange[0]); // Assuming ageRange is in the format "±X"
 
-            if (ageDifference <= allowedAgeRange) {
-                score++; // Increase score if the age difference is within the allowed range
+                if (!isNaN(allowedAgeRange) && ageDifference <= allowedAgeRange) {
+                    score++; // Increase score if the age difference is within the allowed range
+                }
             }
 
             return score;
         }
+
 
         function findMatches(currentUser, allUsers, page = 1, pageSize = 10) {
             const startIdx = (page - 1) * pageSize;
             const endIdx = startIdx + pageSize;
             const subsetUsers = allUsers.slice(startIdx, endIdx);
 
-            // Rest of the function remains the same...
-            const matchScores = subsetUsers.map(user => ({
+            // Remove the current user from the subsetUsers array
+            const filteredSubsetUsers = subsetUsers.filter(user => user.phoneNumber !== currentUser.phoneNumber);
+
+            // Calculate match scores for the remaining users
+            const matchScores = filteredSubsetUsers.map(user => ({
                 user,
                 score: calculateMatchScore(currentUser, user)
             }));
 
             // Filter out users that the current user has already seen or liked
-            const filteredMatches = matchScores.filter(match => {
-                const likedUsers = currentUser.likes.concat(currentUser.premiumLikes);
-                return !likedUsers.includes(match.user.username);
-            });
+            const likedUsers = currentUser.likes.concat(currentUser.premiumLikes);
+            const filteredMatches = matchScores.filter(match => !likedUsers.includes(match.user.phoneNumber));
 
             return filteredMatches;
         }
