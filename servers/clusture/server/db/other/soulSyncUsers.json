@@ -1,25 +1,47 @@
 [
   {
-    "username": "Ms. Hanna Parker Skairipa",
-    "birthdate": "05/01/24",
+    "username": "Hanna Skairipa",
+    "birthdate": "12/10/08",
     "phoneNumber": "+19706917604",
-    "hashedPassword": "$2b$10$kBZmpvhfrN6ON840/xCDl.y.WuyrkAz96oypa5f29717c4G6iCzym",
-    "code": 333349,
-    "deviceID": "",
+    "hashedPassword": "$2b$10$DONkYbnGq7MAMJ/hnDqRae.l13T1Yt9zFFhTRawIxU8JVLsIx9eaG",
+    "code": 110477,
+    "deviceID": [
+      "d275e0c619c74d6a566d751a30606a92e5cdb7f3633b63085019f597f3b19d70"
+    ],
     "verified": true,
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuZXdVc2VyIjp7InVzZXJuYW1lIjoiTXMuIEhhbm5hIFBhcmtlciBTa2FpcmlwYSIsImJpcnRoZGF0ZSI6IjA1LzAxLzI0IiwicGhvbmVOdW1iZXIiOiIrMTk3MDY5MTc2MDQiLCJoYXNoZWRQYXNzd29yZCI6IiQyYiQxMCRrQlptcHZoZnJONk9OODQwL3hDRGwueS5XdXlya0F6OTZveXBhNWYyOTcxN2M0RzZpQ3p5bSIsImNvZGUiOjMzMzM0OSwiZGV2aWNlSUQiOiIiLCJ2ZXJpZmllZCI6ZmFsc2V9LCJpYXQiOjE3MDQ0OTY0OTZ9._6uie7T1SQX0G0-vy9WodDgoaeCOwhchEMWkqopDNMw",
+    "temp": false,
+    "createdAt": 1704576909639,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuZXdVc2VyIjp7InVzZXJuYW1lIjoiSGFubmEgU2thaXJpcGEiLCJiaXJ0aGRhdGUiOiIxMi8xMC8wOCIsInBob25lTnVtYmVyIjoiKzE5NzA2OTE3NjA0IiwiaGFzaGVkUGFzc3dvcmQiOiIkMmIkMTAkRE9Oa1libkdxN01BTUovaG5EcVJhZS5sMTNUMVl0OXpGRmhUUmF3SXhVOEpWTHNJeDllYUciLCJjb2RlIjoxMTA0NzcsImRldmljZUlEIjpbImQyNzVlMGM2MTljNzRkNmE1NjZkNzUxYTMwNjA2YTkyZTVjZGI3ZjM2MzNiNjMwODUwMTlmNTk3ZjNiMTlkNzAiXSwidmVyaWZpZWQiOmZhbHNlLCJ0ZW1wIjp0cnVlLCJjcmVhdGVkQXQiOjE3MDQ1NzY5MDk2Mzl9LCJpYXQiOjE3MDQ1NzY5MDl9.TqJe9_YYSfVOD3yFGq-Zs-IAU6cdk0757XvY8SNZXGI",
     "details": {
-      "gender": [],
-      "sex": [],
-      "sexuality": [],
-      "relationshipStatus": []
+      "gender": [
+        "Female"
+      ],
+      "sex": [
+        "Male"
+      ],
+      "sexuality": [
+        "Pansexual"
+      ],
+      "relationshipStatus": [
+        "Single"
+      ]
     },
     "preferences": {
-      "gender": [],
-      "sex": [],
-      "sexuality": [],
-      "relationshipStatus": [],
-      "ageRange": []
+      "gender": [
+        "Female"
+      ],
+      "sex": [
+        "Female"
+      ],
+      "sexuality": [
+        "Lesbian"
+      ],
+      "relationshipStatus": [
+        "Single"
+      ],
+      "ageRange": [
+        "±2"
+      ]
     }
   }
 ]

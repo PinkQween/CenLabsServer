@@ -16,33 +16,50 @@ const vonage = new Vonage({
 
 module.exports = {
     setupRoutes: (app) => {
+        // In-memory storage for user data (for demonstration purposes only)
+        let userData = [];
+
         // Parse JSON bodies
         app.use(bodyParser.json());
 
-        const checkForUpdates = () => {
-            console.log("Checking for updates...");
-
-            // Example: Delete temporary users older than 10 minutes
-            const currentTime = new Date().getTime();
-            userData = userData.filter((user) => {
-                if (user.temp && currentTime - user.createdAt > 10 * 60 * 1000) {
-                    console.log(`Deleting temporary user: ${user.phoneNumber}`);
-                    return false;
+            const checkForUpdates = () => {
+                // console.log("Checking for updates...");
+                try {
+                    const fileData = fs.readFileSync(path.join(__dirname, '../../db/other/soulSyncUsers.json'), 'utf-8');
+                    userData = JSON.parse(fileData);
+                } catch (error) {
+                    console.error('Error reading initial user data file:', error);
                 }
-                return true;
-            });
+
+                const currentTime = new Date().getTime();
+
+                // Remove temporary users in memory
+                userData = userData.filter((user) => {
+                    if (user.temp && currentTime - user.createdAt > 10 * 60 * 1000) {
+                        console.log(`Deleting temporary user in memory: ${user.phoneNumber}`);
+                        return false;
+                    }
+                    return true;
+                });
+
+                // Remove temporary users from the JSON file
+                saveUserDataToFile();
         };
 
-        // Schedule the function to run every 250ms
-        setInterval(checkForUpdates, 250);
+        setInterval(checkForUpdates, 2500);
 
-        // Schedule a function to delete temporary users after 10 minutes
-        setTimeout(() => {
-            console.log("Deleting temporary users older than 10 minutes...");
-            userData = userData.filter(
-                (user) => !user.temp || new Date().getTime() - user.createdAt <= 10 * 60 * 1000
-            );
-        }, 10 * 60 * 1000);
+            // Schedule a function to delete temporary users after 10 minutes
+            setTimeout(() => {
+                console.log("Deleting temporary users older than 10 minutes...");
+
+                // Remove temporary users in memory
+                userData = userData.filter(
+                    (user) => !user.temp || new Date().getTime() - user.createdAt <= 10 * 60 * 1000
+                );
+
+                // Remove temporary users from the JSON file
+                saveUserDataToFile();
+            }, 10 * 60 * 1000);
 
         const auth = (req, res, next) => {
             // Get token from header
@@ -69,8 +86,6 @@ module.exports = {
             }
         };
 
-        // In-memory storage for user data (for demonstration purposes only)
-        let userData = [];
 
         try {
             const fileData = fs.readFileSync(path.join(__dirname, '../../db/other/soulSyncUsers.json'), 'utf-8');
@@ -89,8 +104,6 @@ module.exports = {
         const saveUserDataToFile = () => {
             const filePath = path.join(__dirname, '../../db/other/soulSyncUsers.json');
             const jsonData = JSON.stringify(userData, null, 2);
-
-            console.log(userData)
 
             fs.writeFileSync(filePath, jsonData, 'utf-8');
         };
@@ -112,6 +125,31 @@ module.exports = {
         };
 
         const smsClient = new twilio(process.env.TWILIO_SID, process.env.TWILIO_TOKEN)
+
+        app.post('/login', async (req, res) => {
+            const { phoneNumber, password, deviceID } = req.body;
+
+            const user = findUserByPhoneNumber(phoneNumber)
+
+            if (!user) {
+                return res.status(400).json({ error: 'user_not_found' });
+            }
+
+            const hashedPassword = await bcrypt.hash(password, 10);
+
+            if (user.hashedPassword == hashedPassword) {
+                res.json({ success: true, token: user.token });
+            } else {
+                return res.status(400).json({ error: 'wrong_password' });
+            }
+
+            if (!user.deviceID.includes(deviceID)) {
+                // Add the new device ID to the array
+                user.deviceID.push(deviceID);
+                // Save user data
+                saveUserDataToFile();
+            }
+        });
 
         // Endpoint for user registration
         app.post('/signup', async (req, res) => {
@@ -141,7 +179,7 @@ module.exports = {
                 phoneNumber,
                 hashedPassword,
                 code,
-                deviceID,
+                deviceID: [deviceID],
                 verified: false,
                 temp: true,
                 createdAt: new Date().getTime()
